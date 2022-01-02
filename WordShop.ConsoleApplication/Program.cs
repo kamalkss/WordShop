@@ -41,9 +41,9 @@ try
         case 4:
             Console.WriteLine("********************************************************\n\n\n");
             Console.WriteLine("Please Enter Your latitude on First Line And Your longitude in Second Line");
-            Console.Write("PostCode:\t");
+            Console.Write("latitude:\t");
             double latitude = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Range:\t");
+            Console.Write("longitude:\t");
             double longitude = Convert.ToDouble(Console.ReadLine());
             if (latitude != null && longitude != null) CallApi.GetPostCodesWithCoordinate(latitude, longitude)
                 .GetAwaiter().GetResult();
@@ -52,9 +52,9 @@ try
         case 5:
             Console.WriteLine("********************************************************\n\n\n");
             Console.WriteLine("Please Enter Your latitude on First Line And Your longitude in Second Line and your Range in the Third Line");
-            Console.Write("PostCode:\t");
+            Console.Write("latitude:\t");
             double latitudeRange = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Range:\t");
+            Console.Write("longitude:\t");
             double longitudeRange = Convert.ToDouble(Console.ReadLine());
             Console.Write("Range:\t");
             int CoordinateRange = Convert.ToInt32(Console.ReadLine());

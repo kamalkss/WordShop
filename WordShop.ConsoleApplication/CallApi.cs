@@ -75,7 +75,7 @@ namespace WordShop.ConsoleApplication
 
         public static async Task GetPostCodesWithCoordinateAndRange(double lat, double lng,int range)
         {
-            var testUri = string.Format($"/coordinate?lat={lat}&lng={lng}&range={range}");
+            var testUri = string.Format($"/coordinaterange?lat={lat}&lng={lng}&range={range}");
             var RequestUri = new Uri(uri + testUri);
             GetFunction(RequestUri);
         }
