@@ -1,5 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-
 using WordShop.ConsoleApplication;
 
 Console.WriteLine("Welcome to The PostCode information application\nThis Application Use a webapi to download and process the data" +
@@ -18,14 +17,14 @@ try
         case 1:
             Console.WriteLine("********************************************************\n\n\n");
             Console.WriteLine("Please Wait");
-            CallApi.DownloadData();
+            CallApi.DownloadData().GetAwaiter().GetResult();
             Console.WriteLine("********************************************************\n\n\n");
             break;
         case 2:
             Console.WriteLine("********************************************************\n\n\n");
             Console.WriteLine("Please Enter your PostCode : ");
             string? PostCode = Console.ReadLine();
-            if (PostCode != null) CallApi.GetPostCodeDetails(PostCode);
+            if (PostCode != null) CallApi.GetPostCodeDetails(PostCode).GetAwaiter().GetResult();
             Console.WriteLine("********************************************************\n\n\n");
             break;
         case 3:
@@ -35,7 +34,8 @@ try
             string? PostCodeRange = Console.ReadLine();
             Console.Write("Range:\t");
             int Range = Convert.ToInt32(Console.ReadLine());
-            if (PostCodeRange != null && Range != null) CallApi.GetPostCodesWithRanges(PostCodeRange, Range);
+            if (PostCodeRange != null && Range != null) CallApi.GetPostCodesWithRanges(PostCodeRange, Range)
+                .GetAwaiter().GetResult();
             Console.WriteLine("********************************************************\n\n\n");
             break;
         case 4:
@@ -45,7 +45,8 @@ try
             double latitude = Convert.ToDouble(Console.ReadLine());
             Console.Write("Range:\t");
             double longitude = Convert.ToDouble(Console.ReadLine());
-            if (latitude != null && longitude != null) CallApi.GetPostCodesWithCoordinate(latitude, longitude);
+            if (latitude != null && longitude != null) CallApi.GetPostCodesWithCoordinate(latitude, longitude)
+                .GetAwaiter().GetResult();
             Console.WriteLine("********************************************************\n\n\n");
             break;
         case 5:
@@ -59,7 +60,8 @@ try
             int CoordinateRange = Convert.ToInt32(Console.ReadLine());
             if (latitudeRange != null && longitudeRange != null && CoordinateRange != null)
             {
-                CallApi.GetPostCodesWithCoordinateAndRange(latitudeRange, longitudeRange,CoordinateRange);
+                CallApi.GetPostCodesWithCoordinateAndRange(latitudeRange, longitudeRange,CoordinateRange)
+                    .GetAwaiter().GetResult();
             }
             Console.WriteLine("********************************************************\n\n\n");
             break;

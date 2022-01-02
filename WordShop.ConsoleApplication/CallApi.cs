@@ -23,12 +23,12 @@ namespace WordShop.ConsoleApplication
                 new MediaTypeWithQualityHeaderValue("application/json"));
             
         }
-        public static void  DownloadData()
+        public static async Task DownloadData()
         {
             try
             {
-                var response =  Client.GetAsync(uri);
-                if (!response.IsCompletedSuccessfully)
+                var response =  await Client.GetAsync(uri);
+                if (!response.IsSuccessStatusCode)
                 {
                      Console.WriteLine("There was an error on Download or Extract the data");
                 }
